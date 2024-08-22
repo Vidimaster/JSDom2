@@ -10,7 +10,7 @@
     background-color: white;
     padding: 5px;
 
-    height: auto;
+    max-height: 300px;
     margin-top: 20px;
     border: 2px solid #a1a6ee;
     box-shadow: 1px 3px 3px 0 rgba(238, 255, 0, 0.48), 0 5px 2px 0 rgba(217, 6, 6, 0.11);
