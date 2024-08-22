@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <img src="img/1.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img/2.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img/3.jpg" style="width:50%">
+        </div>
+        <br>
+        <div class="btns">
+            <button class="prev" onclick="Slides(-1)">Предыдущее изображение</button>
+            <button class="next" onclick="Slides(1)">Следующее изображение</button>
+        </div>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <script>
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+
+        function Slides(n) {
+            showSlides(slideIndex += n);
+        }
+
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "flex";
+            dots[slideIndex - 1].className += " active";
+        } 
+    </script>
+
+</body>
+
+</html>
